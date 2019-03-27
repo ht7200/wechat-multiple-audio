@@ -1,1 +1,16 @@
-<view class="index other">{{prop}}-{{flag}}</view>
+<view class="index other">
+    <view class="audio_wrap">
+            <view class="df ai-center audio">
+                <image class="play_icon ml40" wx:if="{{1}}" src="../../images/radio_play.png"></image>
+                <image class="pause_icon ml40" wx:else src="../../images/radio_pause.png"></image>
+                <view class="ml20">00:23</view>
+                <slider activeColor="#3d92e1"
+                       backgroundColor="#bfbfbf"
+                       block-color="#3d92e1"
+                       block-size="12"
+                       style="width: 360rpx;"
+                ></slider>
+                <view>00:23</view>
+            </view>
+        </view>
+</view>
