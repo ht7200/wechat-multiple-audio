@@ -1,20 +1,20 @@
 <view class="index other">
     <view class="audio_wrap">
         <view class="df ai-center jcc  audio">
-            <view class="button pause" wx:if="{{isPlaying}}" bind:tap="pause"></view>
-            <view class="button play" wx:else bind:tap="play"></view>
+            <view class="button pause" style="color:{{buttonColor}}" wx:if="{{isPlaying}}" bind:tap="pause"></view>
+            <view class="button play" style="border-color:transparent transparent transparent {{buttonColor}}" wx:else bind:tap="play"></view>
             <view class="ml20">{{curTimeVal}}</view>
-            <slider show-value activeColor="#3d92e1" 
+            <slider disabled="{{!isPlaying}}"
+                    activeColor="{{activeColor}}" 
                     backgroundColor="#bfbfbf" 
-                    block-color="#3d92e1" 
+                    block-color="{{blockColor}}" 
                     block-size="12" 
                     style="width: 360rpx;" 
                     bindchange="bindchange"
+                    bindchanging="bindchanging"
                     value="{{curValue}}" 
                     max="{{maxValue}}"></slider>
             <view>{{duration}}</view>
         </view>
-        <view>{{curValue}}</view>
-        <view>{{maxValue}}</view>
     </view>
 </view>
