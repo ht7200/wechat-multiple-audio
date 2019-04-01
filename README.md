@@ -14,9 +14,16 @@
 audioList: {
   type: Array,
   value: [
-    {asrc: 'http://m10.music.126.net/20190330104904/bc7b35f16da6374e81bbdf507a423440/ymusic/fa90/df9c/59f7/95c4a2802e0b9191ae1a048f127e53c5.mp3'},
-    {asrc: 'http://m10.music.126.net/20190328140202/13d2b669a01d87295490f617b8b0e86f/ymusic/4d92/739d/6c66/0c9aff0de4d9a4de19f1d4d5f5129db0.mp3'}]
+    {
+      asrc: 'http://m10.music.126.net/20190330104904/bc7b35f16da6374e81bbdf507a423440/ymusic/fa90/df9c/59f7/95c4a2802e0b9191ae1a048f127e53c5.mp3'
+    },
+    {
+      asrc: 'http://m10.music.126.net/20190328140202/13d2b669a01d87295490f617b8b0e86f/ymusic/4d92/739d/6c66/0c9aff0de4d9a4de19f1d4d5f5129db0.mp3'
+    }
+  ]
 },
+
+// 另： activeColor blockColor buttonColor paddingValue 等
 ```
 
 ## 使用

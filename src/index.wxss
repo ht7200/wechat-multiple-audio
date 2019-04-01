@@ -1,9 +1,18 @@
-@import "./common.wxss";
-@import "./reset.wxss";
-
 view{
   font-size:12px;
 }
+.audio_wrap{
+
+}
+.player{
+  background: #fff;
+  padding:18rpx 0 35rpx;
+}
+.audio{
+  padding: 15rpx 0;
+  background: #eee;
+}
+
 .button{
   padding: 0;
   box-sizing: border-box;
@@ -16,6 +25,7 @@ view{
   border-width:0px 0px 0px 14px;
   color:#3d92e1;
 }
+
 
 .play {  
   height: 8px;
