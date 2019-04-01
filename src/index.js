@@ -21,10 +21,6 @@ Component({
       type: String,
       value: "#3d92e1"
     },
-    asrc: {
-      type: String,
-      value: ''
-    },
     amount: {
       type: Number,
       value: 1
