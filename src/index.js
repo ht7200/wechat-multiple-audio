@@ -51,10 +51,6 @@ Component({
     this.resetTime()
   },
   methods: {
-    start() {
-      console.log('play buttin clicked')
-      this.triggerEvent('changAudio', {onId: this.data.audioId})
-    },
     play(event) {
       const id = event.target.id
       const src = this.data.audioList[id].asrc

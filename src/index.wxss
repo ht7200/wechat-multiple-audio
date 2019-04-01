@@ -1,11 +1,7 @@
 view{
   font-size:12px;
 }
-.audio_wrap{
-
-}
 .player{
-  background: #fff;
   padding:18rpx 0 35rpx;
 }
 .audio{
@@ -33,10 +29,6 @@ view{
   border-width: 9px 0 9px 16px;
   border-color: transparent transparent transparent #3d92e1;
 
-}
-
-page {
-  background: #f9f9f9;
 }
 /*字体颜色*/
 .cor_1{color:#343434;}
