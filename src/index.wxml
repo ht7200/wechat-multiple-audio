@@ -1,20 +1,24 @@
 <view class="index other">
+
     <view class="audio_wrap">
-        <view class="df ai-center jcc  audio">
-            <view class="button pause" style="color:{{buttonColor}}" wx:if="{{isPlaying}}" bind:tap="pause"></view>
-            <view class="button play" style="border-color:transparent transparent transparent {{buttonColor}}" wx:else bind:tap="play"></view>
-            <view class="ml20">{{curTimeVal}}</view>
-            <slider disabled="{{!isPlaying}}"
-                    activeColor="{{activeColor}}" 
-                    backgroundColor="#bfbfbf" 
-                    block-color="{{blockColor}}" 
-                    block-size="12" 
-                    style="width: 360rpx;" 
-                    bindchange="bindchange"
-                    bindchanging="bindchanging"
-                    value="{{curValue}}" 
-                    max="{{maxValue}}"></slider>
-            <view>{{duration}}</view>
+        <view wx:for="{{audioList}}" wx:key="{{index}}">
+            <view class="df ai-center jcc  audio">
+                <view class="button pause" id="{{index}}" style="color:{{buttonColor}}" wx:if="{{item.isPlaying}}" bind:tap="pause"></view>
+                <view class="button play" id="{{index}}" style="border-color:transparent transparent transparent {{buttonColor}}" wx:else bind:tap="play"></view>
+                <view class="ml20">{{item.curTimeVal}}</view>
+                <slider id="{{index}}"
+                        disabled="{{!item.isPlaying}}"
+                        activeColor="{{activeColor}}" 
+                        backgroundColor="#bfbfbf" 
+                        block-color="{{blockColor}}" 
+                        block-size="12" 
+                        style="width: 360rpx;" 
+                        bindchange="bindchange"
+                        bindchanging="bindchanging"
+                        value="{{item.curValue}}" 
+                        max="{{item.maxValue}}"></slider>
+                <view>{{item.duration}}</view>
+            </view>
         </view>
     </view>
 </view>

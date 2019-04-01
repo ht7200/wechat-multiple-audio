@@ -24,8 +24,9 @@ npm install
 2. 执行命令：
 
 ```
-npm run dev
+npm run dev （开发环境）
 ```
+npm run build （生产环境环境）
 
 默认会在包根目录下生成 miniprogram\_dev 目录，src 中的源代码会被构建并生成到 miniprogram\_dev/components 目录下。如果需要监听文件变化动态构建，则可以执行命令：
 

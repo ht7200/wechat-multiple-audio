@@ -10,5 +10,6 @@ yarn-error.log*
 
 
 miniprogram_dev
+miniprogram_dist
 node_modules
 coverage
