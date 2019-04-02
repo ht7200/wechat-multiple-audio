@@ -26,6 +26,68 @@ audioList: {
 // 另： activeColor blockColor buttonColor paddingValue 等
 ```
 
+## 当需要使用多个音频列表时,你需要做如下几点
+
+* 1.请在app.js中加入如下内容
+```
+App({
+  globalData: {// 全局变量
+    playId: ''
+  },
+  /** 监听函数的对象数组 */
+  watchCallBack: {},
+
+  /** 监听列表 */
+  watchingKeys: [],
+
+  /** 初始化 */
+  init() {
+    // 全局数据
+    this.globalData$ = Object.assign({}, this.globalData)
+  },
+
+  /** 设置全局数据 */
+  setGlobalData(obj) {
+    // eslint-disable-next-line array-callback-return
+    Object.keys(obj).map(key => {
+      this.globalData[key] = obj[key]
+    })
+  },
+
+  /** watch函数 */
+  watch$(key, cb) {
+    this.watchCallBack = Object.assign({}, this.watchCallBack, {
+      [key]: this.watchCallBack[key] || []
+    })
+    this.watchCallBack[key].push(cb)
+    if (!this.watchingKeys.find(x => x === key)) {
+      const that = this
+      this.watchingKeys.push(key)
+      let val = this.globalData[key]
+      Object.defineProperty(this.globalData, key, {
+        configurable: true,
+        enumerable: true,
+        set(value) {
+          const old = that.globalData[key]
+          val = value
+          that.watchCallBack[key].map(func => func(val, old))
+        },
+        get() {
+          return val
+        }
+      })
+    }
+  }
+})
+```
+* 2.使用组件时请为没一个组件添加唯一的参数：audioId
+```
+<view >队列1</view>
+<comp audioId="P1" audioList="{{audioList_1}}"></comp>
+<view >队列2</view>
+<comp audioId="P2" audioList="{{audioList_2}}"></comp>
+```
+
 ## 使用
 
 * 使用[命令行工具](https://github.com/wechat-miniprogram/miniprogram-cli)进行初始化

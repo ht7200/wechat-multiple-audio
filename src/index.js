@@ -1,27 +1,35 @@
-/* eslint-disable quotes */
+// /* eslint-disable quotes */
 const innerAudioContext = wx.createInnerAudioContext()
+// eslint-disable-next-line no-undef
+const app = getApp()
+const globalData = app.globalData
+
 let timer = null
 Component({
   properties: {
+    audioId: {
+      type: String,
+      value: ''
+    },
     audioList: {
       type: Array,
       value: []
     },
     activeColor: {
       type: String,
-      value: "#3d92e1"
+      value: '#3d92e1'
     },
     blockColor: {
       type: String,
-      value: "#3d92e1"
+      value: '#3d92e1'
     },
     buttonColor: {
       type: String,
-      value: "#3d92e1"
+      value: '#3d92e1'
     },
     paddingValue: {
       type: String,
-      value: "26rpx 0 26rpx"
+      value: '26rpx 0 26rpx'
     },
     amount: {
       type: Number,
@@ -32,17 +40,28 @@ Component({
 
   },
   attached() {
-    this.setData({
-      seekStemp: 0,
-    })
   },
   lifetimes: {
     attached() {
-      wx.getSystemInfo({
-        success: () => {
-          this.setData({
-            flag: true,
-          })
+      app.watch$('playId', (val, old) => {
+        console.log('watched')
+        const audioId = this.data.audioId
+        const audioList = this.data.audioList
+        if (old !== val) {
+          if (val !== audioId) {
+            for (let i = 0; i < audioList.length; i++) {
+              const isPlaying = `audioList[${i}].isPlaying`
+              const curTimeVal = `audioList[${i}].curTimeVal`
+              const curValue = `audioList[${i}].curValue`
+              const seekStemp = `audioList[${i}].seekStemp`
+              this.setData({
+                [isPlaying]: false,
+                [curTimeVal]: '00:00',
+                [curValue]: 0,
+                [seekStemp]: 0
+              })
+            }
+          }
         }
       })
     }
@@ -56,7 +75,10 @@ Component({
       const src = this.data.audioList[id].asrc
       let isPlaying = this.data.audioList[id].isPlaying
       this.stopOther(id)
-
+      app.setGlobalData({
+        playId: this.data.audioId
+      })
+      console.log(globalData)
       innerAudioContext.autoplay = false
       innerAudioContext.src = src
       console.log('audio play!!!')
@@ -100,7 +122,7 @@ Component({
       const id = event.target.id
       const isPlaying = `audioList[${id}].isPlaying`
       clearInterval(timer)
-      console.log("audio stop!!!")
+      console.log('audio stop!!!')
       innerAudioContext.stop()
       innerAudioContext.offPlay()
       this.setData({
@@ -142,7 +164,7 @@ Component({
       const seekStemp = `audioList[${id}].seekStemp`
       // 监听播放时间
       innerAudioContext.onPlay(() => {
-        console.log("playing")
+        console.log('playing')
         this.onTimeUpdate(id)
       })
       innerAudioContext.onError((res) => {

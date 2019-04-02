@@ -1,6 +1,6 @@
 <view class="index">
 
-    <view class="audio_wrap">
+    <view class="audio_wrap" audioId="{{audioId}}">
         <view wx:for="{{audioList}}" wx:key="{{index}}" class="player" style="padding:{{paddingValue}}">
             <view class="df ai-center jcc  audio">
                 <view class="button pause" id="{{index}}" style="color:{{buttonColor}}" wx:if="{{item.isPlaying}}" bind:tap="pause"></view>
