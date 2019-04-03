@@ -88,22 +88,23 @@ App({
 <comp audioId="P1" audioList="{{audioList_1}}"></comp>
 <view >队列2</view>
 <comp audioId="P2" audioList="{{audioList_2}}"></comp>
-
 ```
+
 ## 删除
 * 默认没有删除按钮，需要删除按钮时请传入参数**delete**,可以监听到删除事件
-```
-<compunent delete bind:deleteAudio="onDelete">
 
 ```
+<compunent delete bind:deleteAudio="onDelete">
+```
+
 * 删除事件源码，供参考
+
 ```
 const EventDetail = {
   'audioId': audioId,
   'id': id
 }
 this.triggerEvent('deleteAudio', EventDetail)
-
 ```
 
 ## 使用
