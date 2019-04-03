@@ -15,6 +15,10 @@ Component({
       type: Array,
       value: []
     },
+    delete: {
+      type: Boolean,
+      value: false
+    },
     activeColor: {
       type: String,
       value: '#3d92e1'
@@ -129,6 +133,20 @@ Component({
         [isPlaying]: false
       })
     },
+    onDelete(event) {
+      const id = event.target.id
+      const audioId = this.data.audioId
+      const List = this.data.audioList
+      List.splice(id, 1)
+      const EventDetail = {
+        'audioId': audioId,
+        'id': id
+      }
+      this.setData({
+        audioList: List
+      })
+      this.triggerEvent('deleteAudio', EventDetail)
+    },
     bindchanging() {
       // innerAudioContext.offSeeking()
     },
@@ -144,10 +162,6 @@ Component({
     },
     toSeek(stemp) {
       innerAudioContext.seek(stemp)
-      // const isPlaying = `audioList[${id}].isPlaying`
-      // this.setData({
-      //   [isPlaying]: true
-      // })
     },
     timeFormat(time) {
       let min = (time / 60).toFixed(0)

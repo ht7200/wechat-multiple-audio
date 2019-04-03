@@ -18,7 +18,9 @@
                         value="{{item.curValue}}" 
                         max="{{item.maxValue}}"></slider>
                 <view>{{item.duration}}</view>
+                <image wx:if="{{delete}}" id="{{index}}" bind:tap="onDelete" src="https://i.screenshot.net/le3rwu3" class="icon"></image>
             </view>
         </view>
     </view>
+    
 </view>
