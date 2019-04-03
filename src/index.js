@@ -164,8 +164,8 @@ Component({
       innerAudioContext.seek(stemp)
     },
     timeFormat(time) {
-      let min = (time / 60).toFixed(0)
-      let sec = (time % 60).toFixed(0)
+      let min = parseInt((time / 60), 10)
+      let sec = parseInt((time % 60), 10)
 
       if (min < 10) min = '0' + min
       if (sec < 10) sec = '0' + sec
@@ -244,10 +244,12 @@ Component({
         const curValue = `audioList[${i}].curValue`
         const maxValue = `audioList[${i}].maxValue`
         const seekStemp = `audioList[${i}].seekStemp`
+        const durationVal = this.data.audioList[i].duration || 0
+        const durationStr = this.timeFormat(durationVal)
         this.setData({
           [isPlaying]: false,
           [curTimeVal]: '00:00',
-          [duration]: '00:00',
+          [duration]: durationStr,
           [curValue]: 0,
           [maxValue]: 0,
           [seekStemp]: 0

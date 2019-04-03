@@ -23,9 +23,9 @@ view{
 }
 
 .icon{
-  width: 20px;
+  width: 18px;
   height: 20px;
-  margin-left:15px;
+  margin-left:5px;
   background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAkCAMAAAAw96PuAAAAS1BMVEUAAAA/mOU9metAmOM+lONCluQ9k+I9k+I+kuI/k+M9kuE+k+I+k+JJnuc9k+I9k+I+lOI9lOI/k+E/k+I+k+FAk+NAn+9dov89kuGchI5mAAAAGHRSTlMAHBkjSi6L8upJ1uCaCva1oHptal5AEAW8YtPpAAAAnElEQVQ4y+3Suw4CIRCF4VnQGQX2fjvv/6QS0HVjGEpj4d+cgo+GQKcmf8v5mcoJXoki+kP0itjXe27d6dxmam1EjHpMgnpCAfUCURNnuRRaANiGYgDifpavxvm+GCWkDTIqogNMPukUAcDGsXH/oiDUNzWAKGLynJb9/BY/+YNqwpaEPYQDhmuhAXBZMNQ4i9ZpwLX0JFw0jhN4AGWFKS9l6iuYAAAAAElFTkSuQmCC');
   background-size:100%; 
 }
