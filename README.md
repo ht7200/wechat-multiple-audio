@@ -8,7 +8,7 @@
 * 支持 eslint
 * 支持多入口构建
 
-## 传参
+### 传参
 
 ```
 audioList: {
@@ -26,7 +26,7 @@ audioList: {
 // 另： activeColor blockColor buttonColor paddingValue 等
 ```
 
-## 当需要使用多个音频列表时,你需要做如下几点
+### 当需要使用多个音频列表时,你需要做如下几点
 
 * 1.请在app.js中加入如下内容
 
@@ -90,7 +90,7 @@ App({
 <comp audioId="P2" audioList="{{audioList_2}}"></comp>
 ```
 
-## 删除
+### 删除
 * 默认没有删除按钮，需要删除按钮时请传入参数**delete**,可以监听到删除事件
 
 ```
@@ -105,6 +105,12 @@ const EventDetail = {
   'id': id
 }
 this.triggerEvent('deleteAudio', EventDetail)
+```
+### 更新
+* 小程序音频api不能在没有播放的情况下获取音频的长度，所以在初始化的时候，音频的时长是*00：00*，对此介意的同学可以在audioList的对象里面加一个duration对象,value值为时长秒数。如：
+
+```
+{asrc: 'http://m10.music.126.net/20190330104904/bc7b35f16da6374e81bbdf507a423440/ymusic/fa90/df9c/59f7/95c4a2802e0b9191ae1a048f127e53c5.mp3', duration: 762},
 ```
 
 ## 使用
