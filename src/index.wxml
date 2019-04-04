@@ -1,11 +1,27 @@
+<wxs module="getTime">
+    // eslint-disable-next-line no-var
+    var getTime = {
+        // eslint-disable-next-line object-shorthand
+        format: function (time) {
+            if (!time) return '00:00'
+            var min = parseInt((time / 60), 10)
+            var sec = parseInt((time % 60), 10)
+            if (min < 10) min = '0' + min
+            if (sec < 10) sec = '0' + sec
+            return (min + ':' + sec)
+        }
+    }
+    module.exports = {
+        format: getTime.format
+    }
+</wxs>
 <view class="index">
-
     <view class="audio_wrap" audioId="{{audioId}}">
         <view wx:for="{{audioList}}" wx:key="{{index}}" class="player" style="padding:{{paddingValue}}">
             <view class="df ai-center jcc  audio">
                 <view class="button pause" id="{{index}}" style="color:{{buttonColor}}" wx:if="{{item.isPlaying}}" bind:tap="pause"></view>
                 <view class="button play" id="{{index}}" style="border-color:transparent transparent transparent {{buttonColor}}" wx:else bind:tap="play"></view>
-                <view class="ml20">{{item.curTimeVal}}</view>
+                <view class="ml20">{{item.curTimeVal || '00:00'}}</view>
                 <slider id="{{index}}"
                         disabled="{{!item.isPlaying}}"
                         activeColor="{{activeColor}}" 
@@ -17,10 +33,9 @@
                         bindchanging="bindchanging"
                         value="{{item.curValue}}" 
                         max="{{item.maxValue}}"></slider>
-                <view>{{item.duration}}</view>
+                <view>{{getTime.format(item.duration)}}</view>
                 <image wx:if="{{delete}}" id="{{index}}" bind:tap="onDelete" class="icon"></image>
             </view>
         </view>
     </view>
-    
 </view>

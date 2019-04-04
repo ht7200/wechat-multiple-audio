@@ -1,1 +1,12 @@
-Page({})
+Page({
+  data: {
+    audioList_1: [
+      {asrc: 'http://m10.music.126.net/20190330104904/bc7b35f16da6374e81bbdf507a423440/ymusic/fa90/df9c/59f7/95c4a2802e0b9191ae1a048f127e53c5.mp3', duration: 762},
+      {asrc: 'http://m10.music.126.net/20190328140202/13d2b669a01d87295490f617b8b0e86f/ymusic/4d92/739d/6c66/0c9aff0de4d9a4de19f1d4d5f5129db0.mp3'}
+    ],
+    audioList_2: [
+      {asrc: 'http://dl.stream.qqmusic.qq.com/M500003kLvu04bLGzi.mp3?vkey=195F95BD522A927A06FB9C3D55B5A8AAC66958B52EDC0F83DA496EB3CDF998A180A7E61E2D170C288CDD99E63DC86A2BD596BAA2E805E1B6&guid=5150825362&fromtag=1'},
+      {asrc: 'http://dl.stream.qqmusic.qq.com/M500004bRWFg3fej9y.mp3?vkey=9348338DB23F9BB7F39336F0E031202AB6F67A3F1A08A88CFC76FB131CDFD66EAA53529BA4AC8A1D146D28426DEC4F885050A576262E1507&guid=5150825362&fromtag=1', duration: 356}
+    ]
+  },
+})

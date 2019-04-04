@@ -226,7 +226,7 @@ Component({
         this.curTimeVal = this.timeFormat(this.curTimeVal)
         */
         this.data.audioList[id].maxValue = innerAudioContext.duration
-        this.data.audioList[id].duration = this.timeFormat(this.data.audioList[id].maxValue)
+        this.data.audioList[id].duration = innerAudioContext.duration
         const duration = `audioList[${id}].duration`
         const maxValue = `audioList[${id}].maxValue`
         this.setData({
@@ -245,11 +245,10 @@ Component({
         const maxValue = `audioList[${i}].maxValue`
         const seekStemp = `audioList[${i}].seekStemp`
         const durationVal = this.data.audioList[i].duration || 0
-        const durationStr = this.timeFormat(durationVal)
         this.setData({
           [isPlaying]: false,
           [curTimeVal]: '00:00',
-          [duration]: durationStr,
+          [duration]: durationVal,
           [curValue]: 0,
           [maxValue]: 0,
           [seekStemp]: 0

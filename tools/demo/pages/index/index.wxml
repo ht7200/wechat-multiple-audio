@@ -1,1 +1,4 @@
-<comp></comp>
+<view >队列1</view>
+<comp audioId="P1" audioList="{{audioList_1}}" bind:deleteAudio="onDelete"></comp>
+<view >队列2</view>
+<comp audioId="P2" delete audioList="{{audioList_2}}" bind:deleteAudio="onDelete"></comp>
